@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>杜文煜个人简历</title>
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./reset.css">
+    <!-- <script src="//at.alicdn.com/t/font_1057292_gskjrzuh8mp.js"></script> -->
+    <style type="text/css">
+      .icon {
+         width: 1em; height: 1em;
+         vertical-align: -0.15em;
+         fill: currentColor;
+         overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="topNavBar" class="topNavBar ">
+      <div id="" class="topNavBar-inner  clearfix">
+        <a class="logo" href="#" alt="logo" style="float: left; ">
+          <span class="rs">RS</span><span class="card">card</span>
+        </a>  
+        <nav style="float: right;">
+          <ul class="clearfix">
+            <li><a href="#">关于</a></li>
+            <li><a href="#">技能</a></li>
+            <li class="menuTigger">
+              <a href="#">作品</a>
+              <ul class="submenu">
+                <li>作品1</li>
+                <li>作品2</li>
+                <li>作品3</li>
+              </ul>
+            </li>
+            <li class="menuTigger">
+              <a href="#">博客</a>
+              <ul class="submenu">
+                  <li>作品1</li>
+                  <li>作品2</li>
+                  <li>作品3</li>
+                </ul>
+            </li>
+            <li><a href="#">日历</a></li>
+            <li><a href="#">联系方式</a></li>
+            <li><a href="#">其他</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="banner">
+      <div class="mask"></div>
+    </div>
+    <!-- 中间介绍 -->
+    <main style="margin-top:-340px;">
+      <div class="userCard">
+        <div class="pictureAndText clearfix">
+          <div class="picture">
+            <img src="./img/hdImg_9b3bd9c0e6fb1bc9ff51fe0420c6d20915508435411.jpg" style="width:200px;height:200px">
+          </div>
+          <div class="text">
+            <span class="welcome">Hello
+              <span class="triangle"></span>
+            </span>
+            <h1>杜文煜</h1>
+            <p>前端开发工程师</p>
+            <hr>
+            <dl>
+              <dt>年龄</dt>
+              <dd>24</dd>
+              <dt>所在城市</dt>
+              <dd>重庆</dd>
+              <dt>邮箱</dt>
+              <dd>540153461@qq.com</dd>
+              <dt>电话</dt>
+              <dd>18225034959</dd>
+            </dl>
+          </div>
+        </div>
+        <footer class="media">
+          <a href="#">
+              <img src="./img/github.png">
+          </a>
+          <a href="#">
+              <img src="./img/CN_jianshu.png">
+          </a>
+          <a href="#">
+              <img src="./img/zhihu.png">
+          </a>
+        </footer>
+      </div>
+    </main>
+    <p class="downloadResume-wrapper" style="text-align: center">
+      <a class="downloadResume" href="#" target="_blank" download="">下载PDF简历</a>
+    </p>
+    
+    <p class="selfIntroduction">
+      杜文煜，前端工程师   网页设计
+      <br> 技能：前端开发 UI设计 交互设计 Node.js开发
+    </p>
+    <section class="skills ">
+      <h2>技能</h2>
+      <ol class="clearfix">
+        <div class="li-wrapper clearfix">
+          <li>
+            <h3>HTML 5 &amp; CSS 3</h3> 
+            <div class="progressBar">
+              <div class="prigress"></div>
+            </div>   
+          </li>
+          <li>
+            <h3>JavaScript</h3> 
+            <div class="progressBar">
+              <div class="prigress"></div>
+            </div>  
+          </li>
+          <li>
+            <h3>jQuery</h3> 
+            <div class="progressBar">
+              <div class="prigress"></div>
+            </div>  
+          </li>
+          <li>
+            <h3>Vue</h3> 
+            <div class="progressBar">
+              <div class="prigress"></div>
+            </div>  
+          </li>
+          <li>
+            <h3>HTTP</h3> 
+            <div class="progressBar">
+              <div class="prigress"></div>
+            </div>  
+          </li>
+          <li>
+            <h3>React</h3> 
+            <div class="progressBar">
+              <div class="prigress"></div>
+            </div>  
+          </li>
+      </div>
+      </ol>
+    </section>
+    <!-- 作品集 -->
+    <section class="portfolio">
+      <h2>作品集</h2>
+      <nav>
+        <ol class="clearfix">
+          <li id="portfolio1">所有</li>
+          <li id="portfolio2">框架</li>
+          <li id="portfolio3">原生JS &amp;CSS</li>
+        </ol>
+        <div id="portfolioBar" class="bar state-1">
+          <div class="bar-inner state-1">
+          </div>
+        </div>
+      </nav>
+      <div class="works" style="height: 576px;">
+        <div class="big">
+          <img src="./img/big.jpg" alt="作品1">
+        </div>
+        <div class="small" style="left: 645px;">
+            <img src="./img/small.jpg" alt="作品2">
+        </div>
+        <div class="small02" style="left: 645px; top: 298px;">
+            <img src="./img/small02.jpg" alt="作品3">
+        </div>
+      </div>
+  </section>
+  <script>
+    window.onscroll=function(){
+      var topnavbar = document.getElementById('topNavBar')
+      if (scrollY>0) {
+        topnavbar.classList.add('sticky')
+      } else {
+        topnavbar.classList.remove('sticky')
+      }
+    }
+    let liTags=document.getElementsByClassName('menuTigger')
+    for(let i=0;i<liTags.length;i++){
+     liTags[i].onmouseenter=function(x){
+        let li = x.currentTarget
+        console.log(li)
+        let brother=li.getElementsByTagName('ul')[0]
+        brother.classList.add('active')
+      }
+      liTags[i].onmouseleave=function(x){
+        let li = x.currentTarget
+        let brother=li.getElementsByTagName('ul')[0]
+        brother.classList.remove('active')
+      }
+    }
+  </script>
+  </body>
+</html>
