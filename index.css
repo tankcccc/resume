@@ -18,7 +18,19 @@ a{
     width: 100%;
     transition: 1s;
     color: red;
-
+}
+.topNavBar .submenu{
+    background: white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.4);
+    color: #3d4451;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    
+}
+.topNavBar .submenu>li{
+    white-space: nowrap;
+    padding: 5px 10px;
 }
 
 .sticky{
@@ -99,7 +111,19 @@ a{
 .topNavBar .submenu.active{
     white-space:nowrap;
 }
-
+.topNavBar li.active > .submenu{
+   display: block;
+   animation: submenuSlide  .3s;
+}
+@keyframes submenuSlide{
+    0%{
+        transform: translateX(100px)
+    }
+    100%{
+        transform: translateX(200px)
+       
+    }
+}
 .banner{
    height: 515px;
    background-image: url(./img/tree.jpg);

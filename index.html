@@ -22,10 +22,10 @@
         </a>  
         <nav style="float: right;">
           <ul class="clearfix">
-            <li><a href="#">关于</a></li>
-            <li><a href="#">技能</a></li>
+            <li><a href="#siteAbout">关于</a></li>
+            <li><a href="#siteSkills">技能</a></li>
             <li class="menuTigger">
-              <a href="#">作品</a>
+              <a href="#siteWorks" id="production">作品</a>
               <ul class="submenu">
                 <li>作品1</li>
                 <li>作品2</li>
@@ -33,16 +33,16 @@
               </ul>
             </li>
             <li class="menuTigger">
-              <a href="#">博客</a>
+              <a href="#blog" id="blog">博客</a>
               <ul class="submenu">
                   <li>作品1</li>
                   <li>作品2</li>
                   <li>作品3</li>
                 </ul>
             </li>
-            <li><a href="#">日历</a></li>
-            <li><a href="#">联系方式</a></li>
-            <li><a href="#">其他</a></li>
+            <li><a href="#calendar" id="calendar">日历</a></li>
+            <li><a href="#contact" id="contact">联系方式</a></li>
+            <li><a href="#other" id="other">其他</a></li>
           </ul>
         </nav>
       </div>
@@ -51,7 +51,7 @@
       <div class="mask"></div>
     </div>
     <!-- 中间介绍 -->
-    <main style="margin-top:-340px;">
+    <main style="margin-top:-340px;" id="siteAbout">
       <div class="userCard">
         <div class="pictureAndText clearfix">
           <div class="picture">
@@ -97,7 +97,8 @@
       杜文煜，前端工程师   网页设计
       <br> 技能：前端开发 UI设计 交互设计 Node.js开发
     </p>
-    <section class="skills ">
+    <!-- 技能 -->
+    <section class="skills" id="siteSkills" '>
       <h2>技能</h2>
       <ol class="clearfix">
         <div class="li-wrapper clearfix">
@@ -141,7 +142,7 @@
       </ol>
     </section>
     <!-- 作品集 -->
-    <section class="portfolio">
+    <section class="portfolio" id="siteWorks">
       <h2>作品集</h2>
       <nav>
         <ol class="clearfix">
@@ -179,7 +180,6 @@
     for(let i=0;i<liTags.length;i++){
      liTags[i].onmouseenter=function(x){
         let li = x.currentTarget
-        console.log(li)
         let brother=li.getElementsByTagName('ul')[0]
         brother.classList.add('active')
       }
@@ -189,6 +189,19 @@
         brother.classList.remove('active')
       }
     }
+
+    let aTags=document.querySelectorAll('nav>ul>li>a')
+    for(let i=0;i<aTags.length;i++){
+      aTags[i].onclick=function(x){
+          x.preventDefault()
+          let a = x.currentTarget
+          let href = a.getAttribute('href') //'#siteAbout'
+          let element = document.querySelector(href)
+          let top =element.offsetTop
+          window.scrollTo(0, top-80)
+      }
+    }
+        
   </script>
   </body>
 </html>
