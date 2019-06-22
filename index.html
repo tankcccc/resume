@@ -51,7 +51,7 @@
       <div class="mask"></div>
     </div>
     <!-- 中间介绍 -->
-    <main style="margin-top:-340px;" id="siteAbout">
+    <main style="margin-top:-340px;" id="siteAbout" data-x>
       <div class="userCard">
         <div class="pictureAndText clearfix">
           <div class="picture">
@@ -98,7 +98,7 @@
       <br> 技能：前端开发 UI设计 交互设计 Node.js开发
     </p>
     <!-- 技能 -->
-    <section class="skills" id="siteSkills" '>
+    <section class="skills" id="siteSkills" data-x >
       <h2>技能</h2>
       <ol class="clearfix">
         <div class="li-wrapper clearfix">
@@ -142,7 +142,7 @@
       </ol>
     </section>
     <!-- 作品集 -->
-    <section class="portfolio" id="siteWorks">
+    <section class="portfolio" id="siteWorks" data-x>
       <h2>作品集</h2>
       <nav>
         <ol class="clearfix">
@@ -168,13 +168,24 @@
       </div>
   </section>
   <script>
-    window.onscroll=function(){
+    window.onscroll=function(x){
       var topnavbar = document.getElementById('topNavBar')
       if (scrollY>0) {
         topnavbar.classList.add('sticky')
       } else {
         topnavbar.classList.remove('sticky')
       }
+      //高亮
+      let specialTags=document.querySelectorAll('[data-x]')
+      let minIndex=0
+      for(let i=1;i<specialTags.length;i++){
+        if (Math.abs(specialTags[i].offsetTop-window.scrollY)<Math.abs(specialTags[minIndex].offsetTop-window.scrollY)){
+          minIndex=i
+        }
+      }
+      console.log(minIndex)
+      specialTags[minIndex].classList.add('active')
+      
     }
     let liTags=document.getElementsByClassName('menuTigger')
     for(let i=0;i<liTags.length;i++){
@@ -198,7 +209,22 @@
           let href = a.getAttribute('href') //'#siteAbout'
           let element = document.querySelector(href)
           let top =element.offsetTop
-          window.scrollTo(0, top-80)
+          // window.scrollTo(0, top-80)
+
+          let n=50 //一共多少次
+          let t=500/n
+          let targetTop=top-80
+          let currentTop=window.scrollY
+          let s = (targetTop-currentTop)/n
+          let i=0
+          let id=setInterval(()=>{
+            if(i===n){
+              clearInterval(id)
+              return
+            }
+              i=i+1
+              window.scrollTo(0,currentTop+ s*i)
+          },t)
       }
     }
         

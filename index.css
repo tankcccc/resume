@@ -107,20 +107,16 @@ a{
 }
 .topNavBar .submenu.active{
     display: block;
-}
-.topNavBar .submenu.active{
     white-space:nowrap;
-}
-.topNavBar li.active > .submenu{
-   display: block;
-   animation: submenuSlide  .3s;
+    animation: submenuSlide  0.3s;
+    
 }
 @keyframes submenuSlide{
     0%{
-        transform: translateX(100px)
+        margin-right: 100%;
     }
     100%{
-        transform: translateX(200px)
+        margin-right: 0%;
        
     }
 }
@@ -358,4 +354,9 @@ a{
 }
 .portfolio .big , .portfolio .small , .portfolio .small02{
     position: absolute;
+}
+
+
+[data-x]{
+    oueline: 10px solid red 
 }
