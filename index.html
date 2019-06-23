@@ -183,9 +183,19 @@
           minIndex=i
         }
       }
-      console.log(minIndex)
+      // 亮之外的可以删除
+      for(let i=0;i<specialTags.length;i++){
+        specialTags[i].classList.remove('active')
+      }
       specialTags[minIndex].classList.add('active')
-      
+      let id = specialTags[minIndex].id
+      let a = document.querySelector('a[href="#'+id+'"]')
+      let li = a.parentNode
+      let brothersAndMe=li.parentNode.children
+      for(let i=0;i<brothersAndMe.length;i++){
+        brothersAndMe[i].classList.remove('active')
+      }
+      li.classList.add('active')
     }
     let liTags=document.getElementsByClassName('menuTigger')
     for(let i=0;i<liTags.length;i++){
@@ -193,6 +203,7 @@
         let li = x.currentTarget
         let brother=li.getElementsByTagName('ul')[0]
         brother.classList.add('active')
+
       }
       liTags[i].onmouseleave=function(x){
         let li = x.currentTarget

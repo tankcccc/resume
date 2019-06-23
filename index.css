@@ -93,6 +93,20 @@ a{
     height: 3px;
     animation: menuSlide .6s;
 }
+.topNavBar nav>ul>li.active>a:after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #e6686a;
+    height: 3px;
+    animation: menuSlide .6s;
+}
+  .topNavBar nav>ul>li.active>a:hover:after {
+    display: none;
+ }
 @keyframes menuSlide{
     0%{
         width: 0;
@@ -357,6 +371,6 @@ a{
 }
 
 
-[data-x]{
-    oueline: 10px solid red 
+[data-x].active{
+    outline: 10px solid red; 
 }
