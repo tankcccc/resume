@@ -18,20 +18,34 @@ let myForm = document.querySelector('#postMessageForm')
 myForm.addEventListener('submit',function(e){
     e.preventDefault()
     let content=myForm.querySelector('input[name=content]').value
+    let name=myForm.querySelector('input[name=name]').value
     var Message = AV.Object.extend('Message');
     let message=new Message()
     message.save({
+    name:name,
     content: content
     }).then(function(object) {
-    console.log(object)
-    console.log(adasd)
+      let li=document.createElement('li')
+      li.innerText=`${object.attributes.name}: ${object.attributes.content}`
+      let messageList=document.querySelector('#messageList')
+      messageList.appendChild(li)
     })
 })
 
+
 var query = new AV.Query('Message');
-  query.find().
-  then(function (message) {
-    todos.forEach(function(todo) {
+  query.find().then(function (messages) {
+    console.log(messages)
+    let array=messages.map((item)=>item.attributes)
+    console.log(array)
+    array.forEach((item)=>{
+      console.log('here')
+      let li=document.createElement('li')
+      li.innerText=`${item.name}: ${item.content}`
+      let messageList=document.querySelector('#messageList')
+      messageList.appendChild(li)
+    })
+    todos.forEach(function(message) {
       todo.set('status', 1);
     });
     return AV.Object.saveAll(todos);
